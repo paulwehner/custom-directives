@@ -1,0 +1,38 @@
+<!--
+
+AngularJS / Directives / 3 LastFM
+
+Expand the msPerson Directive to display an artists name and image. Specify Scope bindings.
+
+Notice jQuery is now being imported. This means the 'element' which is provided by your
+Directive link functions now are jQuery objects instead of jQLite.
+
+Bonus: Just show artists with a MBID (Music Brainz ID)
+Bonus: Display a loading indicator when Service is executing
+Bonus: Show artist bio on hover
+
+-->
+
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="msDirectives.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="ArtistController as ArtistCtrl">
+    <div>
+        <label>Artist:</label>
+        <input type="text" ng-model="searchValue" placeholder="Search Artists" ms-initial-focus >
+        <hr>
+        <div ng-repeat="artist in artists">
+            <ms-person name="{{artist.name}}"></ms-person>
+            name: {{artist.image[3]['#text']}}"
+            <br>mbid: {{artist.mbid}}
+        </div>
+    </div>
+</body>
+
+</html>
